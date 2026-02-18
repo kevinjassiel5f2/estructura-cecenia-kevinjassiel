@@ -35,3 +35,160 @@ factorial(5)
 
 //Metodo factotial con recursividad 
 //El cálculo del factorial 
+
+
+
+public class RecursividadDirecta {
+public static int fibonacci(int n) {
+
+    // Casos base
+    if (n == 0)
+        return 0;
+
+    if (n == 1)
+        return 1;
+
+    // Caso recursivo
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+    public class MultiplicacionRecursiva {
+
+//ejercicio 1
+    // función recursiva
+    public static int multiplicar(int a, int b) {
+
+        // caso base
+        if (b == 0) {
+            return 0;
+        }
+
+        // llamada recursiva (suma repetida)
+        return a + multiplicar(a, b - 1);
+    }
+
+    public static void main(String[] args) {
+
+        int num1 = 3;
+        int num2 = 4;
+
+        int resultado = multiplicar(num1, num2);
+
+        System.out.println("Resultado: " + resultado);
+    }
+}
+    //ejercicio  2
+   public class SumaArregloRecursivo {
+
+    public static int sumar(int[] arreglo, int n) {
+
+        // caso base
+        if (n == 0) {
+            return 0;
+        }
+
+        // suma recursiva
+        return arreglo[n - 1] + sumar(arreglo, n - 1);
+    }
+
+    public static void main(String[] args) {
+
+        int[] numeros = {5, 10, 15, 20};
+
+        int resultado = sumar(numeros, numeros.length);
+
+        System.out.println("La suma es: " + resultado);
+    }
+}
+
+    //ejercicio 3
+public class NumeroParRecursivo {
+
+    public static boolean esPar(int n) {
+
+        // caso base
+        if (n == 0) {
+            return true;   // es par
+        }
+
+        if (n == 1) {
+            return false;  // es impar
+        }
+
+        // llamada recursiva
+        return esPar(n - 2);
+    }
+
+    public static void main(String[] args) {
+
+        int numero = 6;
+
+        if (esPar(numero)) {
+            System.out.println("El número es PAR");
+        } else {
+            System.out.println("El número es IMPAR");
+        }
+    }
+}
+//ejercicio 4
+public class Palindromo {
+
+    public static boolean esPalindromo(String palabra, int inicio, int fin) {
+
+        // caso base
+        if (inicio >= fin) {
+            return true;
+        }
+
+        // si las letras no coinciden
+        if (palabra.charAt(inicio) != palabra.charAt(fin)) {
+            return false;
+        }
+
+        // llamada recursiva
+        return esPalindromo(palabra, inicio + 1, fin - 1);
+    }
+
+    public static void main(String[] args) {
+
+        String palabra = "ana";
+
+        if (esPalindromo(palabra, 0, palabra.length() - 1)) {
+            System.out.println("Es palíndromo");
+        } else {
+            System.out.println("No es palíndromo");
+        }
+    }
+}
+//ejercicio 5
+public class BuscarRecursivo {
+
+    public static boolean buscar(int[] arreglo, int elemento, int indice) {
+
+        // caso base: si llegamos al final
+        if (indice == arreglo.length) {
+            return false;
+        }
+
+        // si encontramos el elemento
+        if (arreglo[indice] == elemento) {
+            return true;
+        }
+
+        // llamada recursiva
+        return buscar(arreglo, elemento, indice + 1);
+    }
+
+    public static void main(String[] args) {
+
+        int[] numeros = {4, 8, 15, 20, 7};
+        int valorBuscar = 15;
+
+        if (buscar(numeros, valorBuscar, 0)) {
+            System.out.println("Elemento encontrado");
+        } else {
+            System.out.println("Elemento no encontrado");
+        }
+    }
+}
+}
