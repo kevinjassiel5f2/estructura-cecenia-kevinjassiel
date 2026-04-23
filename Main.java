@@ -8,6 +8,10 @@ public class Main {
         arbol.insertar(3);
         arbol.insertar(7);
 
+        System.out.println("Raíz: " + arbol.buscar(10));
+
+        System.out.println("=== MÉTODOS DE BÚSQUEDA ===");
+
         System.out.println("Buscar 7: " + arbol.buscar(7));
         System.out.println("Buscar 20: " + arbol.buscar(20));
 
@@ -20,5 +24,13 @@ public class Main {
         if (padre != null) {
             System.out.println("Padre de 7: " + padre.valor);
         }
+
+        
+        
+        System.out.println("\nInorden:");
+     arbol.inorden();
+
+    System.out.println("\nÁrbol:");
+     arbol.imprimirArbol();
     }
 }
