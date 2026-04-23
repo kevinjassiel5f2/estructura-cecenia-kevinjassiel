@@ -33,7 +33,7 @@ class ArbolBinario {
         return actual;
     }
 
-    // 🔍 Buscar true/false
+    //  Buscar true/false
     public boolean buscar(int valor) {
         return buscarRec(raiz, valor);
     }
@@ -49,7 +49,7 @@ class ArbolBinario {
         }
     }
 
-    // 🔍 Buscar nodo
+    //  Buscar nodo
     public Nodo buscarNodo(int valor) {
         return buscarNodoRec(raiz, valor);
     }
@@ -64,7 +64,7 @@ class ArbolBinario {
         }
     }
 
-    // 🔍 Buscar padre
+    //  Buscar padre
     public Nodo buscarPadre(int valor) {
         return buscarPadreRec(raiz, null, valor);
     }
