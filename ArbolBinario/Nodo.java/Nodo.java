@@ -1,21 +1,17 @@
 class ArbolBinario {
 
-    // Nodo interno
     class Nodo {
         int valor;
-        Nodo izquierdo;
-        Nodo derecho;
+        Nodo izquierdo, derecho;
 
         Nodo(int valor) {
             this.valor = valor;
-            izquierdo = null;
-            derecho = null;
+            izquierdo = derecho = null;
         }
     }
 
     private Nodo raiz;
 
-    // Constructor
     public ArbolBinario() {
         raiz = null;
     }
@@ -26,9 +22,7 @@ class ArbolBinario {
     }
 
     private Nodo insertarRec(Nodo actual, int valor) {
-        if (actual == null) {
-            return new Nodo(valor);
-        }
+        if (actual == null) return new Nodo(valor);
 
         if (valor < actual.valor) {
             actual.izquierdo = insertarRec(actual.izquierdo, valor);
@@ -39,14 +33,13 @@ class ArbolBinario {
         return actual;
     }
 
-   
+    // 🔍 Buscar true/false
     public boolean buscar(int valor) {
         return buscarRec(raiz, valor);
     }
 
     private boolean buscarRec(Nodo actual, int valor) {
         if (actual == null) return false;
-
         if (valor == actual.valor) return true;
 
         if (valor < actual.valor) {
@@ -56,45 +49,35 @@ class ArbolBinario {
         }
     }
 
-    // Inorden
-    public void inorden() {
-        inordenRec(raiz);
-        System.out.println();
+    // 🔍 Buscar nodo
+    public Nodo buscarNodo(int valor) {
+        return buscarNodoRec(raiz, valor);
     }
 
-    private void inordenRec(Nodo actual) {
-        if (actual != null) {
-            inordenRec(actual.izquierdo);
-            System.out.print(actual.valor + " ");
-            inordenRec(actual.derecho);
+    private Nodo buscarNodoRec(Nodo actual, int valor) {
+        if (actual == null || actual.valor == valor) return actual;
+
+        if (valor < actual.valor) {
+            return buscarNodoRec(actual.izquierdo, valor);
+        } else {
+            return buscarNodoRec(actual.derecho, valor);
         }
     }
 
-    // Preorden
-    public void preorden() {
-        preordenRec(raiz);
-        System.out.println();
+    // 🔍 Buscar padre
+    public Nodo buscarPadre(int valor) {
+        return buscarPadreRec(raiz, null, valor);
     }
 
-    private void preordenRec(Nodo actual) {
-        if (actual != null) {
-            System.out.print(actual.valor + " ");
-            preordenRec(actual.izquierdo);
-            preordenRec(actual.derecho);
-        }
-    }
+    private Nodo buscarPadreRec(Nodo actual, Nodo padre, int valor) {
+        if (actual == null) return null;
 
-    //  Postorden
-    public void postorden() {
-        postordenRec(raiz);
-        System.out.println();
-    }
+        if (actual.valor == valor) return padre;
 
-    private void postordenRec(Nodo actual) {
-        if (actual != null) {
-            postordenRec(actual.izquierdo);
-            postordenRec(actual.derecho);
-            System.out.print(actual.valor + " ");
+        if (valor < actual.valor) {
+            return buscarPadreRec(actual.izquierdo, actual, valor);
+        } else {
+            return buscarPadreRec(actual.derecho, actual, valor);
         }
     }
 }
