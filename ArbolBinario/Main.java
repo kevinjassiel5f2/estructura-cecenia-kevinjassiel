@@ -1,3 +1,4 @@
+package ArbolBinario;
 public class Main {
     public static void main(String[] args) {
         ArbolBinario arbol = new ArbolBinario();
@@ -32,5 +33,10 @@ public class Main {
 
     System.out.println("\nÁrbol:");
      arbol.imprimirArbol();
+        int valor = 5;
+
+        System.out.println("Tipo de nodo: " + arbol.tipoNodo(valor));
+        System.out.println("Nivel del nodo: " + arbol.nivel(valor));
+
     }
 }
