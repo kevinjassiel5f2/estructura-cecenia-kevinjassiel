@@ -1,19 +1,17 @@
 package Lista;
 
 public class Nodo<T> {
+    //atributos
     private T valor;
     private Nodo<T> siguiente;
 
+    //constructor
     public Nodo() {
         valor = null;
         siguiente = null;
     }
 
-    public Nodo(T valor) {
-        this.valor = valor;
-        this.siguiente = null;
-    }
-
+    //metodos
     public T getValor() {
         return valor;
     }
